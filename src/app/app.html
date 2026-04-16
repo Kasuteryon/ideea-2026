@@ -10,12 +10,13 @@
 <nav class="nav-bar glass-panel" id="main-nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <span class="text-gradient-green">IDEEA 2026 - Mexico City</span>
+      <span class="text-gradient-green">IDEEA 2026 - CDMX</span>
     </a>
     <div class="nav-links">
       <a href="#survival">Guide</a>
       <a href="#metro">Metro</a>
       <a href="#itinerary">Itinerary</a>
+      <a href="#hotels">Hotels</a>
       <a href="#venues">Venues</a>
       <a href="#explore">Explore</a>
     </div>
@@ -54,6 +55,53 @@
     </div>
   </section>
 
+  <!-- Preparation Surveys -->
+  <section class="surveys-section" id="surveys" style="padding-top: 6rem;">
+    <div class="container">
+      <div class="section-header fade-in" style="margin-bottom: 3rem;">
+        <h2>Preparation Surveys</h2>
+        <p class="section-desc">Please complete these forms to help the Mexico City Committee prepare for your arrival.
+        </p>
+      </div>
+      <div class="grid-2">
+        <a href="https://forms.gle/5BV2NV14B1qTiT4T6" target="_blank" class="glass-card fade-in"
+          style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
+          <div class="card-icon"
+            style="margin: 0; flex-shrink: 0; background: rgba(154, 78, 219, 0.1); border-color: rgba(154, 78, 219, 0.2);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#c084fc" stroke-width="2" />
+              <circle cx="8.5" cy="7" r="4" stroke="#c084fc" stroke-width="2" />
+              <path d="M20 8v6M23 11h-6" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.25rem;">Mentors Survey</h4>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
+              and logistics form for Mentors.</p>
+          </div>
+        </a>
+        <a href="https://forms.gle/GAJ8W2mJAbEgisdF7" target="_blank" class="glass-card fade-in"
+          style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
+          <div class="card-icon"
+            style="margin: 0; flex-shrink: 0; background: rgba(41, 196, 248, 0.1); border-color: rgba(41, 196, 248, 0.2);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.25rem;">Students Survey</h4>
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
+              and logistics form for Students.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Survival Guide -->
   <section class="survival-guide" id="survival">
     <div class="container">
@@ -85,34 +133,58 @@
             </svg>
           </div>
           <h3>Mexican Currency (MXN)</h3>
-          <p>The local currency is the <strong>Mexican Peso (MXN)</strong>. Exchange rates vary, so check before you
-            arrive!</p>
+          <p>The local currency is the <strong>Mexican Peso (MXN)</strong>, and it is the only accepted currency for
+            everyday purchases. We highly recommend bringing <strong>US Dollars (USD)</strong> or <strong>Euros
+              (EUR)</strong> from your home country, as they are the easiest and most favorable to exchange upon
+            arrival.</p>
+          <div class="tip-box" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 12px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
+              <path
+                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span style="font-size: 0.85rem;"><strong>Tap on any bill or coin</strong> below to preview what our
+              currency looks like!</span>
+          </div>
           <div class="currency-chips">
             <div class="chip-group">
               <span class="chip-label">Bills</span>
               <div class="chips">
-                <span class="chip">$20</span>
-                <span class="chip">$50</span>
-                <span class="chip">$100</span>
-                <span class="chip">$200</span>
-                <span class="chip">$500</span>
-                <span class="chip chip-accent">$1000</span>
+                <span class="chip" [class.active]="selectedCurrencyLabel === '$20'"
+                  (click)="selectCurrency('$20', 'bill_20.jpg')">$20</span>
+                <span class="chip" [class.active]="selectedCurrencyLabel === '$50'"
+                  (click)="selectCurrency('$50', 'bill_50.jpg')">$50</span>
+                <span class="chip" [class.active]="selectedCurrencyLabel === '$100'"
+                  (click)="selectCurrency('$100', 'bill_100.jpg')">$100</span>
+                <span class="chip" [class.active]="selectedCurrencyLabel === '$200'"
+                  (click)="selectCurrency('$200', 'bill_200.jpg')">$200</span>
+                <span class="chip" [class.active]="selectedCurrencyLabel === '$500'"
+                  (click)="selectCurrency('$500', 'bill_500.jpg')">$500</span>
+                <span class="chip chip-accent" [class.active]="selectedCurrencyLabel === '$1000'"
+                  (click)="selectCurrency('$1000', 'bill_1000.jpg')">$1000</span>
               </div>
             </div>
             <div class="chip-group">
               <span class="chip-label">Coins</span>
               <div class="chips">
-                <span class="chip coin">50¢</span>
-                <span class="chip coin">$1</span>
-                <span class="chip coin">$2</span>
-                <span class="chip coin">$5</span>
-                <span class="chip coin">$10</span>
-                <span class="chip coin coin-accent">$20</span>
+                <span class="chip coin" [class.active]="selectedCurrencyLabel === '50¢'"
+                  (click)="selectCurrency('50¢', 'coin_50c.jpg')">50¢</span>
+                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$1c'"
+                  (click)="selectCurrency('$1c', 'coin_1.jpg')">$1</span>
+                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$2c'"
+                  (click)="selectCurrency('$2c', 'coin_2.jpg')">$2</span>
+                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$5c'"
+                  (click)="selectCurrency('$5c', 'coin_5.jpg')">$5</span>
+                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$10c'"
+                  (click)="selectCurrency('$10c', 'coin_10.jpg')">$10</span>
+                <span class="chip coin coin-accent" [class.active]="selectedCurrencyLabel === '$20c'"
+                  (click)="selectCurrency('$20c', 'coin_20.jpg')">$20</span>
               </div>
             </div>
           </div>
           <div class="image-placeholder">
-            <img src="currency.png" alt="Mexican Currency" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img [src]="selectedCurrencyImage" alt="Mexican Currency"
+              style="width: 100%; height: auto; border-radius: 8px; min-height: 120px; object-fit: contain;" />
           </div>
         </div>
 
@@ -120,11 +192,14 @@
         <div class="glass-card alert-card fade-in" id="airport-card">
           <div class="card-icon alert-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="#f59e0b" />
+              <path
+                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                fill="#f59e0b" />
             </svg>
           </div>
           <h3>Arrival at AICM</h3>
-          <div class="alert-banner" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
+          <div class="alert-banner"
+            style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
               <line x1="12" y1="8" x2="12" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
@@ -134,13 +209,16 @@
           </div>
           <p>Use the <strong>authorized airport taxis</strong> located inside the terminal buildings. Purchase your
             ticket at the taxi booth before exiting.</p>
-          <div class="tip-box">
+          <div class="tip-box" style="margin-bottom: 1.5rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="2" />
               <path d="M9 12l2 2 4-4" stroke="#22c55e" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
             <span>Tip: Once you leave the airport area, Uber works normally across the city.</span>
+          </div>
+          <div class="image-placeholder">
+            <img src="aicm.png" alt="Arrival at AICM" style="width: 100%; height: auto; border-radius: 8px;" />
           </div>
         </div>
       </div>
@@ -447,6 +525,150 @@
               <img src="quadrangle.jpg" alt="IPN Quadrangle" style="width: 100%; height: auto; border-radius: 8px;" />
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hotel Catalog -->
+  <section class="hotels-section" id="hotels" style="padding-bottom: 6rem;">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"
+              stroke="url(#hotelGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="hotelGrad" x1="5" y1="3" x2="19" y2="21">
+                <stop stop-color="#f59e0b" />
+                <stop offset="1" stop-color="#29c4f8" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h2>Hotel Catalog</h2>
+        <p class="section-desc">Convenient hotels near Instituto Politécnico Nacional for international attendees</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Hotel 1 -->
+        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+          <h3 style="color: #f59e0b; font-size: 1.3rem;">Courtyard by Marriott Mexico City Vallejo</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
+            Cruz de las Salinas, Azcapotzalco</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="chip coin" style="font-size: 0.8rem;">3.6 km from IPN</span>
+            <span class="chip chip-accent" style="font-size: 0.8rem;">~$182 / night</span>
+            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">American
+              Breakfast</span>
+          </div>
+          <ul
+            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness center
+              & terrace</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Restaurant, bar, 24-hr front
+              desk</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Air conditioning, flat-screen
+              TV & private bath</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Memory &
+              Tolerance Museum (6.7km)</li>
+          </ul>
+        </div>
+
+        <!-- Hotel 2 -->
+        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+          <h3 style="color: #f59e0b; font-size: 1.3rem;">Fairfield Inn & Suites by Marriott Vallejo</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
+            Cruz de las Salinas, Azcapotzalco</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="chip coin" style="font-size: 0.8rem;">3.8 km from IPN</span>
+            <span class="chip chip-accent" style="font-size: 0.8rem;">~$161 / night</span>
+            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Buffet
+              Breakfast</span>
+          </div>
+          <ul
+            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness center
+              & city views</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Wardrobe, coffee maker, safe
+              & TV</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Smoke-free
+              property</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Fine Arts
+              Museum (7.2km)</li>
+          </ul>
+        </div>
+
+        <!-- Hotel 3 -->
+        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+          <h3 style="color: #29c4f8; font-size: 1.3rem;">One Ciudad de Mexico La Raza</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Circuito Interior Num. 130,
+            Col. Santa Maria Insurgentes</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="chip coin" style="font-size: 0.8rem;">6.0 km from IPN</span>
+            <span class="chip chip-accent" style="font-size: 0.8rem;">~$108 / night</span>
+            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Continental
+              Breakfast</span>
+          </div>
+          <ul
+            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Business center & 24-hr front
+              desk</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Desk, flat-screen TV &
+              private bathroom</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Free private
+              parking</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km), Tenochtitlán
+              Ceremonial Precinct (5km)</li>
+          </ul>
+        </div>
+
+        <!-- Hotel 4 -->
+        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+          <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Torremolinos Vallejo</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Avenida Cuitlahuac 339, Col.
+            Prohogar, Azcapotzalco</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="chip coin" style="font-size: 0.8rem;">4.4 km from IPN</span>
+            <span class="chip chip-accent" style="font-size: 0.8rem;">~$69 / night</span>
+            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Included
+              Breakfast</span>
+          </div>
+          <ul
+            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Bar, shared lounge & room
+              service</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Seating area, safe &
+              hairdryer</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free private parking & Free
+              WiFi</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> City Center & U.S. Embassy
+              (5.9km)</li>
+          </ul>
+        </div>
+
+        <!-- Hotel 5 -->
+        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+          <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Escala Central del Norte</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Norte 1 -C 4835 Tlacamaca,
+            Gustavo A Madero, 07380</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="chip coin" style="font-size: 0.8rem;">3.3 km from IPN</span>
+            <span class="chip chip-accent" style="font-size: 0.8rem;">~$51 / night</span>
+            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Restaurant
+              On-Site</span>
+          </div>
+          <ul
+            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi, free parking &
+              24hr room service</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Cable TV with DVD player,
+              private bathroom & toiletries</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> International cuisine (+
+              other dining options 300m away)</li>
+            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km), Polanco
+              Business District (11km)</li>
+          </ul>
         </div>
       </div>
     </div>

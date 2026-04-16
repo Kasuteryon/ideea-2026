@@ -9,6 +9,15 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 export class App implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
 
+  // Currency Interactive State
+  public selectedCurrencyLabel: string = '';
+  public selectedCurrencyImage: string = 'currency.png';
+
+  public selectCurrency(label: string, imgUrl: string): void {
+    this.selectedCurrencyLabel = label;
+    this.selectedCurrencyImage = imgUrl;
+  }
+
   ngAfterViewInit(): void {
     // Scroll-triggered fade-in animations
     this.observer = new IntersectionObserver(

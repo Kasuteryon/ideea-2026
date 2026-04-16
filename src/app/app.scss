@@ -62,15 +62,19 @@
   0% {
     transform: translate(0, 0) scale(1);
   }
+
   25% {
     transform: translate(60px, -40px) scale(1.1);
   }
+
   50% {
     transform: translate(-30px, 50px) scale(0.95);
   }
+
   75% {
     transform: translate(40px, 30px) scale(1.05);
   }
+
   100% {
     transform: translate(-50px, -20px) scale(1);
   }
@@ -447,6 +451,20 @@
   background: rgba(41, 196, 248, 0.08);
   border: 1px solid rgba(41, 196, 248, 0.15);
   color: #29c4f8;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s, border-color 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(41, 196, 248, 0.15);
+  }
+
+  &.active {
+    background: rgba(41, 196, 248, 0.3);
+    border-color: rgba(41, 196, 248, 0.6);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(41, 196, 248, 0.2);
+  }
 }
 
 .chip-accent {
@@ -559,13 +577,11 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(
-      180deg,
-      rgba(41, 196, 248, 0.4),
-      rgba(154, 78, 219, 0.4),
-      rgba(245, 158, 11, 0.4),
-      rgba(124, 36, 59, 0.5)
-    );
+    background: linear-gradient(180deg,
+        rgba(41, 196, 248, 0.4),
+        rgba(154, 78, 219, 0.4),
+        rgba(245, 158, 11, 0.4),
+        rgba(124, 36, 59, 0.5));
     border-radius: 2px;
   }
 
