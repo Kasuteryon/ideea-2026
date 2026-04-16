@@ -1,5 +1,13 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 
+export interface WorldClock {
+  name: string;
+  timeZone: string;
+  timeStr?: string;
+  color: string;
+  country: string;
+}
+
 @Component({
   selector: 'app-root',
   imports: [],
@@ -8,6 +16,17 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 })
 export class App implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
+  private timeInterval: any;
+
+  public worldClocks: WorldClock[] = [
+    { name: 'CDMX', timeZone: 'America/Mexico_City', color: '#22c55e', country: 'Mexico' },
+    { name: 'South Korea', timeZone: 'Asia/Seoul', color: '#f59e0b', country: 'South Korea' },
+    { name: 'Germany', timeZone: 'Europe/Berlin', color: '#29c4f8', country: 'Germany' },
+    { name: 'Romania', timeZone: 'Europe/Bucharest', color: '#f472b6', country: 'Romania' },
+    { name: 'India', timeZone: 'Asia/Kolkata', color: '#c084fc', country: 'India' },
+    { name: 'Finland', timeZone: 'Europe/Helsinki', color: '#22c55e', country: 'Finland' },
+    { name: 'Canada', timeZone: 'America/Toronto', color: '#f59e0b', country: 'Canada' }
+  ];
 
   // Currency Interactive State
   public selectedCurrencyLabel: string = '';
@@ -25,7 +44,24 @@ export class App implements AfterViewInit, OnDestroy {
     this.isMetroMapZoomed = !this.isMetroMapZoomed;
   }
 
+  private updateClocks(): void {
+    const now = new Date();
+    this.worldClocks.forEach(c => {
+      try {
+        c.timeStr = new Intl.DateTimeFormat('en-US', {
+          timeStyle: 'short',
+          timeZone: c.timeZone
+        }).format(now);
+      } catch (e) {
+        c.timeStr = '--:--';
+      }
+    });
+  }
+
   ngAfterViewInit(): void {
+    this.updateClocks();
+    this.timeInterval = setInterval(() => this.updateClocks(), 1000);
+
     // Scroll-triggered fade-in animations
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -61,6 +97,9 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
+    }
     if (this.observer) {
       this.observer.disconnect();
     }
