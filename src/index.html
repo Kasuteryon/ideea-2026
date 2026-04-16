@@ -1,15 +1,42 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>IDEEA 2026 — Mexico City Survival Guide</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Essential survival guide for IDEEA 2026 international participants — currency, metro, venues, itinerary and places to explore in Mexico City.">
+  <meta name="description"
+    content="Essential survival guide for IDEEA 2026 international participants — currency, metro, venues, itinerary and places to explore in Mexico City.">
   <meta name="theme-color" content="#0a0a0f">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
+
 <body>
   <app-root></app-root>
+
+  <!-- Firebase Analytics Setup -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCoau2uv_WJkL5NWnklG_t89nPlGpNkLY0",
+      authDomain: "ideea-2026.firebaseapp.com",
+      projectId: "ideea-2026",
+      storageBucket: "ideea-2026.firebasestorage.app",
+      messagingSenderId: "994040544307",
+      appId: "1:994040544307:web:f44b5c433afbc3e7313746",
+      measurementId: "G-6BXZM40D8T"
+    };
+
+    // Inicializar Firebase solo cuando se reemplacen las credenciales
+    if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      console.log("Firebase Analytics initialized");
+    }
+  </script>
 </body>
+
 </html>
