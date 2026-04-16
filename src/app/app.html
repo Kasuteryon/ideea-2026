@@ -284,8 +284,16 @@
             </svg>
             <h4>Metro Network Map</h4>
           </div>
+          <div class="tip-box" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 12px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
+              <path
+                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span style="font-size: 0.85rem;"><strong>Tap on the map</strong> to preview the Metro Network Map!</span>
+          </div>
           <div class="image-placeholder metro-map-placeholder">
-            <img src="metro_map.png" alt="Metro Network Map" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="metro_map.png" alt="Metro Network Map" class="metro-map-image" (click)="toggleMetroMap()" />
           </div>
         </div>
       </div>
@@ -957,3 +965,18 @@
     </div>
   </footer>
 </main>
+
+<!-- Metro Map Fullscreen Lightbox -->
+@if(isMetroMapZoomed) {
+<div class="lightbox-overlay" style="animation: fadeIn 0.3s ease;" (click)="toggleMetroMap()">
+  <button class="lightbox-close" (click)="toggleMetroMap(); $event.stopPropagation()">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img src="metro_map.png" alt="Metro Network Map Full" class="lightbox-image" />
+  </div>
+</div>
+}

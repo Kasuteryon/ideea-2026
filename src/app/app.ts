@@ -18,6 +18,13 @@ export class App implements AfterViewInit, OnDestroy {
     this.selectedCurrencyImage = imgUrl;
   }
 
+  // Metro Map Zoom State
+  public isMetroMapZoomed: boolean = false;
+
+  public toggleMetroMap(): void {
+    this.isMetroMapZoomed = !this.isMetroMapZoomed;
+  }
+
   ngAfterViewInit(): void {
     // Scroll-triggered fade-in animations
     this.observer = new IntersectionObserver(
