@@ -18,6 +18,27 @@ export class App implements AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
   private timeInterval: any;
 
+  // Tab Navigation State
+  public activeTab: string = 'guide';
+  public isMobileMenuOpen: boolean = false;
+
+  public setTab(tab: string): void {
+    this.activeTab = tab;
+    this.isMobileMenuOpen = false;
+    // Scroll main content to top
+    const main = document.querySelector('.landing-page');
+    if (main) {
+      main.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Re-observe fade-in elements after Angular renders the new tab
+    setTimeout(() => this.reObserveFadeIns(), 50);
+  }
+
+  public toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
   public worldClocks: WorldClock[] = [
     { name: 'CDMX', timeZone: 'America/Mexico_City', color: '#22c55e', country: 'Mexico' },
     { name: 'South Korea', timeZone: 'Asia/Seoul', color: '#f59e0b', country: 'South Korea' },
@@ -58,6 +79,14 @@ export class App implements AfterViewInit, OnDestroy {
     });
   }
 
+  private reObserveFadeIns(): void {
+    document.querySelectorAll('.fade-in').forEach((el) => {
+      if (!el.classList.contains('visible')) {
+        this.observer.observe(el);
+      }
+    });
+  }
+
   ngAfterViewInit(): void {
     this.updateClocks();
     this.timeInterval = setInterval(() => this.updateClocks(), 1000);
@@ -79,20 +108,6 @@ export class App implements AfterViewInit, OnDestroy {
 
     document.querySelectorAll('.fade-in').forEach((el) => {
       this.observer.observe(el);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (e: Event) => {
-        e.preventDefault();
-        const href = (anchor as HTMLAnchorElement).getAttribute('href');
-        if (href) {
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }
-      });
     });
   }
 
