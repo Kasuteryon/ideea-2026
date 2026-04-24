@@ -26,9 +26,11 @@
 <button class="hamburger" (click)="toggleMobileMenu()">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     @if(isMobileMenuOpen) {
-      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" />
     } @else {
-      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" />
     }
   </svg>
 </button>
@@ -36,23 +38,42 @@
 <!-- Mobile Dropdown Menu -->
 <div class="mobile-menu glass-panel" [class.open]="isMobileMenuOpen">
   <button [class.active]="activeTab === 'guide'" (click)="setTab('guide')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
     Guide
   </button>
   <button [class.active]="activeTab === 'itinerary'" (click)="setTab('itinerary')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+      <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" />
+    </svg>
     Itinerary
   </button>
   <button [class.active]="activeTab === 'hotels'" (click)="setTab('hotels')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M9 13h2M13 9h2M13 13h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M9 13h2M13 9h2M13 13h2" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
     Hotels
   </button>
   <button [class.active]="activeTab === 'venues'" (click)="setTab('venues')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" />
+      <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" />
+    </svg>
     Venues & Explore
   </button>
   <button [class.active]="activeTab === 'papers'" (click)="setTab('papers')">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" />
+      <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
     Call for Papers
   </button>
 </div>
@@ -60,1201 +81,1235 @@
 <main class="landing-page">
   <!-- TAB 1: Guide -->
   <div class="tab-panel" [class.active]="activeTab === 'guide'">
-  <section class="hero" id="hero" style="position: relative; z-index: 0;">
-    <div class="hero-bg"
-      style="background: url('background.jpg') center/cover no-repeat; position: absolute; inset: 0; z-index: 0;">
-      <div class="hero-gradient" style="position: absolute; inset: 0; background: rgba(10, 10, 15, 0.4);"></div>
-    </div>
-    <div class="hero-content fade-in" style="position: relative; z-index: 10;">
-      <div class="hero-badge glass-panel">
-        <span>IDEEA Forum 2026 — July 13–16</span>
+    <section class="hero" id="hero" style="position: relative; z-index: 0;">
+      <div class="hero-bg"
+        style="background: url('background.jpg') center/cover no-repeat; position: absolute; inset: 0; z-index: 0;">
+        <div class="hero-gradient" style="position: absolute; inset: 0; background: rgba(10, 10, 15, 0.4);"></div>
       </div>
-      <h1>Welcome to<br><span class="text-gradient-cyan">Mexico City</span></h1>
-      <p class="hero-subtitle">Your essential survival guide for navigating currency, transit, venues & culture during
-        the IDEEA 2026 competition at Instituto Politécnico Nacional.</p>
-      <div class="hero-cta">
-        <a href="#survival" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-          Start Exploring
-        </a>
-        <a href="https://ideea.network" target="_blank" class="btn-glass glass-panel">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          IDEEA Network
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- World Clocks -->
-  <section class="world-clocks-section" style="padding: 4rem 0 2rem 0;">
-    <div class="container">
-      <div class="section-header fade-in" style="margin-bottom: 2rem;">
-        <h2>Global Synchronization</h2>
-        <p class="section-desc">Keep track of the local time for all our international nodes.</p>
-      </div>
-
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-        @for (clock of worldClocks; track clock.name) {
-        <div class="glass-card fade-in" [style.borderTopColor]="clock.color"
-          style="flex: 1 1 120px; text-align: center; padding: 1.25rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 130px; border-top-width: 3px; border-top-style: solid; transition: transform 0.3s; cursor: default;"
-          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-          <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: var(--text-primary);">{{clock.name}}</h4>
-          <div [style.color]="clock.color"
-            style="font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 0.25rem; text-shadow: 0 0 10px rgba(255,255,255,0.1);">
-            {{clock.timeStr || '--:--'}}
-          </div>
-          <div
-            style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
-            {{clock.country}}</div>
+      <div class="hero-content fade-in" style="position: relative; z-index: 10;">
+        <div class="hero-badge glass-panel">
+          <span>IDEEA Forum 2026 — July 13–16</span>
         </div>
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Preparation Surveys -->
-  <section class="surveys-section" id="surveys" style="padding-top: 6rem;">
-    <div class="container">
-      <div class="section-header fade-in" style="margin-bottom: 3rem;">
-        <h2>Preparation Surveys</h2>
-        <p class="section-desc">Please complete these forms to help the Mexico City Committee prepare for your arrival.
-        </p>
-      </div>
-      <div class="grid-2">
-        <a href="https://forms.gle/5BV2NV14B1qTiT4T6" target="_blank" class="glass-card fade-in"
-          style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
-          <div class="card-icon"
-            style="margin: 0; flex-shrink: 0; background: rgba(154, 78, 219, 0.1); border-color: rgba(154, 78, 219, 0.2);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#c084fc" stroke-width="2" />
-              <circle cx="8.5" cy="7" r="4" stroke="#c084fc" stroke-width="2" />
-              <path d="M20 8v6M23 11h-6" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div>
-            <h4 style="margin-bottom: 0.25rem;">Mentors Survey</h4>
-            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
-              and logistics form for Mentors.</p>
-          </div>
-        </a>
-        <a href="https://forms.gle/GAJ8W2mJAbEgisdF7" target="_blank" class="glass-card fade-in"
-          style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
-          <div class="card-icon"
-            style="margin: 0; flex-shrink: 0; background: rgba(41, 196, 248, 0.1); border-color: rgba(41, 196, 248, 0.2);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
+        <h1>Welcome to<br><span class="text-gradient-cyan">Mexico City</span></h1>
+        <p class="hero-subtitle">Your essential survival guide for navigating currency, transit, venues & culture during
+          the IDEEA 2026 competition at Instituto Politécnico Nacional.</p>
+        <div class="hero-cta">
+          <a href="#survival" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </div>
-          <div>
-            <h4 style="margin-bottom: 0.25rem;">Students Survey</h4>
-            <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
-              and logistics form for Students.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Survival Guide -->
-  <section class="survival-guide" id="survival">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#shieldGrad)" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" />
-            <defs>
-              <linearGradient id="shieldGrad" x1="4" y1="2" x2="20" y2="22">
-                <stop stop-color="#29c4f8" />
-                <stop offset="1" stop-color="#1dbfb4" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h2>Survival Guide</h2>
-        <p class="section-desc">Essential things to know before landing in Mexico City</p>
-      </div>
-
-      <div class="grid-2">
-        <!-- Currency Info -->
-        <div class="glass-card fade-in" id="currency-card">
-          <div class="card-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#29c4f8" stroke-width="2" />
-              <path d="M12 6v12M8 9.5c0-1.38 1.79-2.5 4-2.5s4 1.12 4 2.5-1.79 2.5-4 2.5-4 1.12-4 2.5 1.79 2.5 4 2.5"
-                stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Mexican Currency (MXN)</h3>
-          <p>The local currency is the <strong>Mexican Peso (MXN)</strong>, and it is the only accepted currency for
-            everyday purchases. We highly recommend bringing <strong>US Dollars (USD)</strong> or <strong>Euros
-              (EUR)</strong> from your home country, as they are the easiest and most favorable to exchange upon
-            arrival.</p>
-
-          <a href="https://wise.com/mx/currency-converter/usd-to-mxn-rate" target="_blank" rel="noopener noreferrer"
-            style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(0, 185, 255, 0.1); border: 1px solid rgba(0, 185, 255, 0.3); color: #29c4f8; padding: 0.85rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; margin-bottom: 1.5rem; transition: background 0.2s, transform 0.2s;"
-            onmouseover="this.style.background='rgba(0, 185, 255, 0.15)'; this.style.transform='scale(1.01)'"
-            onmouseout="this.style.background='rgba(0, 185, 255, 0.1)'; this.style.transform='scale(1)'">
-            <svg height="20" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-            Live USD to MXN Converter
-            <svg height="18" width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14m-7-7 7 7-7 7"></path>
-            </svg>
+            Start Exploring
           </a>
-
-          <div class="tip-box" style="margin-bottom: 1.5rem; padding: 0.75rem; border-radius: 12px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
-              <path
-                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span style="font-size: 0.85rem;"><strong>Tap on any bill or coin</strong> below to preview what our
-              currency looks like!</span>
-          </div>
-          <div class="currency-chips">
-            <div class="chip-group">
-              <span class="chip-label">Bills</span>
-              <div class="chips">
-                <span class="chip" [class.active]="selectedCurrencyLabel === '$20'"
-                  (click)="selectCurrency('$20', 'bill_20.jpg')">MXN$20</span>
-                <span class="chip" [class.active]="selectedCurrencyLabel === '$50'"
-                  (click)="selectCurrency('$50', 'bill_50.jpg')">MXN$50</span>
-                <span class="chip" [class.active]="selectedCurrencyLabel === '$100'"
-                  (click)="selectCurrency('$100', 'bill_100.jpg')">MXN$100</span>
-                <span class="chip" [class.active]="selectedCurrencyLabel === '$200'"
-                  (click)="selectCurrency('$200', 'bill_200.jpg')">MXN$200</span>
-                <span class="chip" [class.active]="selectedCurrencyLabel === '$500'"
-                  (click)="selectCurrency('$500', 'bill_500.jpg')">MXN$500</span>
-                <span class="chip chip-accent" [class.active]="selectedCurrencyLabel === '$1000'"
-                  (click)="selectCurrency('$1000', 'bill_1000.jpg')">MXN$1000</span>
-              </div>
-            </div>
-            <div class="chip-group">
-              <span class="chip-label">Coins</span>
-              <div class="chips">
-                <span class="chip coin" [class.active]="selectedCurrencyLabel === '50¢'"
-                  (click)="selectCurrency('50¢', 'coin_50c.jpg')">50cens</span>
-                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$1c'"
-                  (click)="selectCurrency('$1c', 'coin_1.jpg')">MXN$1</span>
-                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$2c'"
-                  (click)="selectCurrency('$2c', 'coin_2.jpg')">MXN$2</span>
-                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$5c'"
-                  (click)="selectCurrency('$5c', 'coin_5.jpg')">MXN$5</span>
-                <span class="chip coin" [class.active]="selectedCurrencyLabel === '$10c'"
-                  (click)="selectCurrency('$10c', 'coin_10.jpg')">MXN$10</span>
-                <span class="chip coin coin-accent" [class.active]="selectedCurrencyLabel === '$20c'"
-                  (click)="selectCurrency('$20c', 'coin_20.jpg')">MXN$20</span>
-              </div>
-            </div>
-          </div>
-          <div class="image-placeholder">
-            <img [src]="selectedCurrencyImage" alt="Mexican Currency"
-              style="width: 100%; height: auto; border-radius: 8px; min-height: 120px; object-fit: contain;" />
-          </div>
-        </div>
-
-        <!-- Airport Alert -->
-        <div class="glass-card alert-card fade-in" id="airport-card">
-          <div class="card-icon alert-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-                fill="#f59e0b" />
-            </svg>
-          </div>
-          <h3>Arrival at AICM</h3>
-          <div class="alert-banner"
-            style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
-              <line x1="12" y1="8" x2="12" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
-              <line x1="12" y1="16" x2="12.01" y2="16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <span>Uber & ride-sharing pick-ups are <strong>NOT permitted</strong> at AICM terminals for either
-              departures or arrivals.</span>
-          </div>
-          <p>Use the <strong>authorized airport taxis</strong> located inside the terminal buildings. Purchase your
-            ticket at the taxi booth before exiting.</p>
-          <div class="tip-box" style="margin-bottom: 1.5rem;">
+          <a href="https://ideea.network" target="_blank" class="btn-glass glass-panel">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="2" />
-              <path d="M9 12l2 2 4-4" stroke="#22c55e" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span>Tip: Once you leave the airport area, Uber works normally across the city.</span>
+            IDEEA Network
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- World Clocks -->
+    <section class="world-clocks-section" style="padding: 4rem 0 2rem 0;">
+      <div class="container">
+        <div class="section-header fade-in" style="margin-bottom: 2rem;">
+          <h2>Global Synchronization</h2>
+          <p class="section-desc">Keep track of the local time for all our international nodes.</p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+          @for (clock of worldClocks; track clock.name) {
+          <div class="glass-card fade-in" [style.borderTopColor]="clock.color"
+            style="flex: 1 1 120px; text-align: center; padding: 1.25rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 130px; border-top-width: 3px; border-top-style: solid; transition: transform 0.3s; cursor: default;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: var(--text-primary);">{{clock.name}}</h4>
+            <div [style.color]="clock.color"
+              style="font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 0.25rem; text-shadow: 0 0 10px rgba(255,255,255,0.1);">
+              {{clock.timeStr || '--:--'}}
+            </div>
+            <div
+              style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
+              {{clock.country}}</div>
           </div>
-          <div class="image-placeholder">
-            <img src="aicm.png" alt="Arrival at AICM" style="width: 100%; height: auto; border-radius: 8px;" />
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Preparation Surveys -->
+    <section class="surveys-section" id="surveys" style="padding-top: 6rem;">
+      <div class="container">
+        <div class="section-header fade-in" style="margin-bottom: 3rem;">
+          <h2>Preparation Surveys</h2>
+          <p class="section-desc">Please complete these forms to help the Mexico City Committee prepare for your
+            arrival.
+          </p>
+        </div>
+        <div class="grid-2">
+          <a href="https://forms.gle/5BV2NV14B1qTiT4T6" target="_blank" class="glass-card fade-in"
+            style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
+            <div class="card-icon"
+              style="margin: 0; flex-shrink: 0; background: rgba(154, 78, 219, 0.1); border-color: rgba(154, 78, 219, 0.2);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#c084fc" stroke-width="2" />
+                <circle cx="8.5" cy="7" r="4" stroke="#c084fc" stroke-width="2" />
+                <path d="M20 8v6M23 11h-6" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h4 style="margin-bottom: 0.25rem;">Mentors Survey</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
+                and logistics form for Mentors.</p>
+            </div>
+          </a>
+          <a href="https://forms.gle/GAJ8W2mJAbEgisdF7" target="_blank" class="glass-card fade-in"
+            style="text-decoration: none; display: flex; align-items: center; gap: 1.5rem; transition: transform 0.3s, box-shadow 0.3s;">
+            <div class="card-icon"
+              style="margin: 0; flex-shrink: 0; background: rgba(41, 196, 248, 0.1); border-color: rgba(41, 196, 248, 0.2);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 14l9-5-9-5-9 5 9 5z" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                  stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h4 style="margin-bottom: 0.25rem;">Students Survey</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
+                and logistics form for Students.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Survival Guide -->
+    <section class="survival-guide" id="survival">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#shieldGrad)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="shieldGrad" x1="4" y1="2" x2="20" y2="22">
+                  <stop stop-color="#29c4f8" />
+                  <stop offset="1" stop-color="#1dbfb4" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Survival Guide</h2>
+          <p class="section-desc">Essential things to know before landing in Mexico City</p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Currency Info -->
+          <div class="glass-card fade-in" id="currency-card">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#29c4f8" stroke-width="2" />
+                <path d="M12 6v12M8 9.5c0-1.38 1.79-2.5 4-2.5s4 1.12 4 2.5-1.79 2.5-4 2.5-4 1.12-4 2.5 1.79 2.5 4 2.5"
+                  stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Mexican Currency (MXN)</h3>
+            <p>The local currency is the <strong>Mexican Peso (MXN)</strong>, and it is the only accepted currency for
+              everyday purchases. We highly recommend bringing <strong>US Dollars (USD)</strong> or <strong>Euros
+                (EUR)</strong> from your home country, as they are the easiest and most favorable to exchange upon
+              arrival.</p>
+
+            <a href="https://wise.com/mx/currency-converter/usd-to-mxn-rate" target="_blank" rel="noopener noreferrer"
+              style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(0, 185, 255, 0.1); border: 1px solid rgba(0, 185, 255, 0.3); color: #29c4f8; padding: 0.85rem 1.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; margin-bottom: 1.5rem; transition: background 0.2s, transform 0.2s;"
+              onmouseover="this.style.background='rgba(0, 185, 255, 0.15)'; this.style.transform='scale(1.01)'"
+              onmouseout="this.style.background='rgba(0, 185, 255, 0.1)'; this.style.transform='scale(1)'">
+              <svg height="20" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              Live USD to MXN Converter
+              <svg height="18" width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+              </svg>
+            </a>
+
+            <div class="tip-box" style="margin-bottom: 1.5rem; padding: 0.75rem; border-radius: 12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
+                <path
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span style="font-size: 0.85rem;"><strong>Tap on any bill or coin</strong> below to preview what our
+                currency looks like!</span>
+            </div>
+            <div class="currency-chips">
+              <div class="chip-group">
+                <span class="chip-label">Bills</span>
+                <div class="chips">
+                  <span class="chip" [class.active]="selectedCurrencyLabel === '$20'"
+                    (click)="selectCurrency('$20', 'bill_20.jpg')">MXN$20</span>
+                  <span class="chip" [class.active]="selectedCurrencyLabel === '$50'"
+                    (click)="selectCurrency('$50', 'bill_50.jpg')">MXN$50</span>
+                  <span class="chip" [class.active]="selectedCurrencyLabel === '$100'"
+                    (click)="selectCurrency('$100', 'bill_100.jpg')">MXN$100</span>
+                  <span class="chip" [class.active]="selectedCurrencyLabel === '$200'"
+                    (click)="selectCurrency('$200', 'bill_200.jpg')">MXN$200</span>
+                  <span class="chip" [class.active]="selectedCurrencyLabel === '$500'"
+                    (click)="selectCurrency('$500', 'bill_500.jpg')">MXN$500</span>
+                  <span class="chip chip-accent" [class.active]="selectedCurrencyLabel === '$1000'"
+                    (click)="selectCurrency('$1000', 'bill_1000.jpg')">MXN$1000</span>
+                </div>
+              </div>
+              <div class="chip-group">
+                <span class="chip-label">Coins</span>
+                <div class="chips">
+                  <span class="chip coin" [class.active]="selectedCurrencyLabel === '50¢'"
+                    (click)="selectCurrency('50¢', 'coin_50c.jpg')">50cens</span>
+                  <span class="chip coin" [class.active]="selectedCurrencyLabel === '$1c'"
+                    (click)="selectCurrency('$1c', 'coin_1.jpg')">MXN$1</span>
+                  <span class="chip coin" [class.active]="selectedCurrencyLabel === '$2c'"
+                    (click)="selectCurrency('$2c', 'coin_2.jpg')">MXN$2</span>
+                  <span class="chip coin" [class.active]="selectedCurrencyLabel === '$5c'"
+                    (click)="selectCurrency('$5c', 'coin_5.jpg')">MXN$5</span>
+                  <span class="chip coin" [class.active]="selectedCurrencyLabel === '$10c'"
+                    (click)="selectCurrency('$10c', 'coin_10.jpg')">MXN$10</span>
+                  <span class="chip coin coin-accent" [class.active]="selectedCurrencyLabel === '$20c'"
+                    (click)="selectCurrency('$20c', 'coin_20.jpg')">MXN$20</span>
+                </div>
+              </div>
+            </div>
+            <div class="image-placeholder">
+              <img [src]="selectedCurrencyImage" alt="Mexican Currency"
+                style="width: 100%; height: auto; border-radius: 8px; min-height: 120px; object-fit: contain;" />
+            </div>
+          </div>
+
+          <!-- Airport Alert -->
+          <div class="glass-card alert-card fade-in" id="airport-card">
+            <div class="card-icon alert-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  fill="#f59e0b" />
+              </svg>
+            </div>
+            <h3>Arrival at AICM</h3>
+            <div class="alert-banner"
+              style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
+                <line x1="12" y1="8" x2="12" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+                <line x1="12" y1="16" x2="12.01" y2="16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span>Uber & ride-sharing pick-ups are <strong>NOT permitted</strong> at AICM terminals for either
+                departures or arrivals.</span>
+            </div>
+            <p>Use the <strong>authorized airport taxis</strong> located inside the terminal buildings. Purchase your
+              ticket at the taxi booth before exiting.</p>
+            <div class="tip-box" style="margin-bottom: 1.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="2" />
+                <path d="M9 12l2 2 4-4" stroke="#22c55e" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>Tip: Once you leave the airport area, Uber works normally across the city.</span>
+            </div>
+            <div class="image-placeholder">
+              <img src="aicm.png" alt="Arrival at AICM" style="width: 100%; height: auto; border-radius: 8px;" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Getting Around: Metro -->
-  <section class="metro-section" id="metro">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="11" width="18" height="10" rx="2" stroke="url(#metroGrad)" stroke-width="2" />
-            <path d="M7 21v2M17 21v2" stroke="url(#metroGrad)" stroke-width="2" stroke-linecap="round" />
-            <path d="M5 11l2-8h10l2 8" stroke="url(#metroGrad)" stroke-width="2" />
-            <circle cx="8" cy="16" r="1" fill="#29c4f8" />
-            <circle cx="16" cy="16" r="1" fill="#29c4f8" />
-            <defs>
-              <linearGradient id="metroGrad" x1="3" y1="3" x2="21" y2="23">
-                <stop stop-color="#29c4f8" />
-                <stop offset="1" stop-color="#0071e3" />
-              </linearGradient>
-            </defs>
-          </svg>
+    <!-- Getting Around: Metro -->
+    <section class="metro-section" id="metro">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="10" rx="2" stroke="url(#metroGrad)" stroke-width="2" />
+              <path d="M7 21v2M17 21v2" stroke="url(#metroGrad)" stroke-width="2" stroke-linecap="round" />
+              <path d="M5 11l2-8h10l2 8" stroke="url(#metroGrad)" stroke-width="2" />
+              <circle cx="8" cy="16" r="1" fill="#29c4f8" />
+              <circle cx="16" cy="16" r="1" fill="#29c4f8" />
+              <defs>
+                <linearGradient id="metroGrad" x1="3" y1="3" x2="21" y2="23">
+                  <stop stop-color="#29c4f8" />
+                  <stop offset="1" stop-color="#0071e3" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Getting Around</h2>
+          <p class="section-desc">Mexico City's Metro is one of the largest in the world — and incredibly affordable</p>
         </div>
-        <h2>Getting Around</h2>
-        <p class="section-desc">Mexico City's Metro is one of the largest in the world — and incredibly affordable</p>
+
+        <div class="metro-grid">
+          <div class="glass-card metro-card fade-in">
+            <div class="metro-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Get a MI Card</h4>
+                <p>Purchase a <strong>Movilidad Integrada (MI)</strong> card at any Metro station. It costs ~$21 MXN
+                  and works for Metro, Metrobús, Cablebús & Trolley.</p>
+              </div>
+            </div>
+            <div class="metro-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Recharge</h4>
+                <p>Add credit at automated machines inside stations using cash or bank cards. Each Metro trip costs $5
+                  MXN.</p>
+              </div>
+            </div>
+            <div class="metro-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Ride</h4>
+                <p>Tap your card at the turnstile and enjoy! The Metro operates from 5:00 AM to midnight.</p>
+              </div>
+            </div>
+
+            <div class="alert-banner"
+              style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
+                <line x1="12" y1="8" x2="12" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+                <line x1="12" y1="16" x2="12.01" y2="16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span>We recommend using <strong>Google Maps</strong> always for navigating the city</span>
+            </div>
+
+            <div class="alert-banner"
+              style="background: rgba(41, 196, 248, 0.08); border-color: rgba(41, 196, 248, 0.15);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M17.5 19C19.9853 19 22 16.9853 22 14.5C22 12.0147 19.9853 10 17.5 10C17.1528 10 16.8144 10.0385 16.49 10.1119C15.8239 7.2274 13.2458 5 10 5C6.13401 5 3 8.13401 3 12C3 12.3023 3.01912 12.5999 3.05581 12.8913C1.84996 13.5658 1 14.8696 1 16.5C1 18.433 2.567 20 4.5 20H16.5"
+                  stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M8 14V17" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 16V19" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M16 14V17" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span><strong>Weather Alert:</strong> Rain is expected during the event dates. Don't forget to pack an
+                umbrella and a light jacket!</span>
+            </div>
+          </div>
+
+          <div class="glass-card metro-map-card fade-in">
+            <div class="map-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8 2v16M16 6v16" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <h4>Metro Network Map</h4>
+            </div>
+            <div class="tip-box" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
+                <path
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span style="font-size: 0.85rem;"><strong>Tap on the map</strong> to preview the Metro Network Map!</span>
+            </div>
+            <div class="image-placeholder metro-map-placeholder">
+              <img src="metro_map.png" alt="Metro Network Map" class="metro-map-image" (click)="toggleMetroMap()" />
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="metro-grid">
-        <div class="glass-card metro-card fade-in">
-          <div class="metro-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h4>Get a MI Card</h4>
-              <p>Purchase a <strong>Movilidad Integrada (MI)</strong> card at any Metro station. It costs ~$21 MXN
-                and works for Metro, Metrobús, Cablebús & Trolley.</p>
-            </div>
-          </div>
-          <div class="metro-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h4>Recharge</h4>
-              <p>Add credit at automated machines inside stations using cash or bank cards. Each Metro trip costs $5
-                MXN.</p>
-            </div>
-          </div>
-          <div class="metro-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h4>Ride</h4>
-              <p>Tap your card at the turnstile and enjoy! The Metro operates from 5:00 AM to midnight.</p>
-            </div>
-          </div>
-
-          <div class="alert-banner"
-            style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
-              <line x1="12" y1="8" x2="12" y2="12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
-              <line x1="12" y1="16" x2="12.01" y2="16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <span>We recommend using <strong>Google Maps</strong> always for navigating the city</span>
-          </div>
-
-          <div class="alert-banner"
-            style="background: rgba(41, 196, 248, 0.08); border-color: rgba(41, 196, 248, 0.15);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M17.5 19C19.9853 19 22 16.9853 22 14.5C22 12.0147 19.9853 10 17.5 10C17.1528 10 16.8144 10.0385 16.49 10.1119C15.8239 7.2274 13.2458 5 10 5C6.13401 5 3 8.13401 3 12C3 12.3023 3.01912 12.5999 3.05581 12.8913C1.84996 13.5658 1 14.8696 1 16.5C1 18.433 2.567 20 4.5 20H16.5"
-                stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M8 14V17" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M12 16V19" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M16 14V17" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span><strong>Weather Alert:</strong> Rain is expected during the event dates. Don't forget to pack an
-              umbrella and a light jacket!</span>
-          </div>
-        </div>
-
-        <div class="glass-card metro-map-card fade-in">
-          <div class="map-header">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M8 2v16M16 6v16" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <h4>Metro Network Map</h4>
-          </div>
-          <div class="tip-box" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 12px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="color: #29c4f8;">
-              <path
-                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.773 2.867M6.18 5.694l-2.807-.94M2.05 10.062h3.04M1.082 14.876l2.808-.94"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span style="font-size: 0.85rem;"><strong>Tap on the map</strong> to preview the Metro Network Map!</span>
-          </div>
-          <div class="image-placeholder metro-map-placeholder">
-            <img src="metro_map.png" alt="Metro Network Map" class="metro-map-image" (click)="toggleMetroMap()" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   </div>
 
   <!-- TAB 2: Itinerary -->
   <div class="tab-panel" [class.active]="activeTab === 'itinerary'">
-  <!-- Itinerary Timeline -->
-  <section class="itinerary-section" id="itinerary">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="4" width="18" height="18" rx="2" stroke="url(#calGrad)" stroke-width="2" />
-            <path d="M16 2v4M8 2v4M3 10h18" stroke="url(#calGrad)" stroke-width="2" stroke-linecap="round" />
-            <defs>
-              <linearGradient id="calGrad" x1="3" y1="2" x2="21" y2="22">
-                <stop stop-color="#9a4edb" />
-                <stop offset="1" stop-color="#a33251" />
-              </linearGradient>
-            </defs>
-          </svg>
+    <!-- Itinerary Timeline -->
+    <section class="itinerary-section" id="itinerary">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="url(#calGrad)" stroke-width="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" stroke="url(#calGrad)" stroke-width="2" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="calGrad" x1="3" y1="2" x2="21" y2="22">
+                  <stop stop-color="#9a4edb" />
+                  <stop offset="1" stop-color="#a33251" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Event Itinerary</h2>
+          <p class="section-desc">4 days of innovation, networking, and unforgettable experiences</p>
         </div>
-        <h2>Event Itinerary</h2>
-        <p class="section-desc">4 days of innovation, networking, and unforgettable experiences</p>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <!-- Day 1 -->
+          <div class="timeline-item fade-in" id="day1">
+            <div class="timeline-marker day-1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="day-header">
+                <span class="day-badge day-1-bg">Day 1</span>
+                <h3>Monday, July 13th</h3>
+              </div>
+              <div class="schedule-items">
+                <div class="sched-item">
+                  <span class="sched-time">9:30 – 10:30</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" />
+                      <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                      <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                      <line x1="23" y1="11" x2="17" y2="11" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    </svg>
+                    Welcome Registration
+                  </span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">12:00 – 1:00</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke="currentColor"
+                        stroke-width="2" />
+                      <line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                      <line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    </svg>
+                    Lunch Time
+                  </span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">1:00 – 2:00</span>
+                  <span class="sched-label">Mentor's Research Conference 1</span>
+                </div>
+                <div class="sched-item muted">
+                  <span class="sched-time">2:00 – 2:15</span>
+                  <span class="sched-label">Coffee Break ☕</span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">2:15 – 3:30</span>
+                  <span class="sched-label">Mentor's Research Conference 2</span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">3:30 – 5:30</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                        stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    3D Digitization Workshop
+                  </span>
+                </div>
+                <div class="sched-item highlight">
+                  <span class="sched-time">6:00 PM</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" />
+                      <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor"
+                        stroke-width="2" />
+                    </svg>
+                    Networking Session 1 🎉
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="timeline-item fade-in" id="day2">
+            <div class="timeline-marker day-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke="currentColor" stroke-width="2" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="day-header">
+                <span class="day-badge day-2-bg">Day 2</span>
+                <h3>Tuesday, July 14th</h3>
+              </div>
+              <div class="schedule-items">
+                <div class="sched-item">
+                  <span class="sched-time">8:30 – 8:45</span>
+                  <span class="sched-label">Breakfast</span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">8:45 – 9:00</span>
+                  <span class="sched-label">Indications</span>
+                </div>
+                <div class="sched-item highlight">
+                  <span class="sched-time">9:00 – 12:00</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <polygon points="23 7 16 12 23 17 23 7" stroke="currentColor" stroke-width="2" />
+                      <rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Presentations — Stage 1
+                  </span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">12:00 – 1:00</span>
+                  <span class="sched-label">Lunch Time</span>
+                </div>
+                <div class="sched-item highlight">
+                  <span class="sched-time">1:00 – 2:30</span>
+                  <span class="sched-label">Presentations — Stage 2</span>
+                </div>
+                <div class="sched-item muted">
+                  <span class="sched-time">2:30 – 2:45</span>
+                  <span class="sched-label">Coffee Break ☕</span>
+                </div>
+                <div class="sched-item highlight">
+                  <span class="sched-time">2:45 – 4:30</span>
+                  <span class="sched-label">Presentations — Stage 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="timeline-item fade-in" id="day3">
+            <div class="timeline-marker day-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                <path d="M2 12h20" stroke="currentColor" stroke-width="2" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="timeline-content glass-card adventure-card">
+              <div class="day-header">
+                <span class="day-badge day-3-bg">Day 3</span>
+                <h3>Wednesday, July 15th</h3>
+              </div>
+              <div class="schedule-items">
+                <div class="sched-item highlight adventure">
+                  <span class="sched-time">8:30 – 12:00</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M3 21h18M5 21V9l7-7 7 7v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    Visit to Chapultepec Castle
+                  </span>
+                </div>
+              </div>
+              <div class="image-placeholder adventure-image">
+                <img src="chapultepec_castle.jpg" alt="Chapultepec Castle"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="timeline-item fade-in" id="day4">
+            <div class="timeline-marker day-4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" />
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="day-header">
+                <span class="day-badge day-4-bg">Day 4</span>
+                <h3>Thursday, July 16th</h3>
+              </div>
+              <div class="schedule-items">
+                <div class="sched-item">
+                  <span class="sched-time">9:30 – 12:00</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor"
+                        stroke-width="2" />
+                      <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Visit to the Assembly Plant
+                  </span>
+                </div>
+                <div class="sched-item">
+                  <span class="sched-time">4:00 PM</span>
+                  <span class="sched-label">Mentor's Research Conference 3</span>
+                </div>
+                <div class="sched-item finale">
+                  <span class="sched-time">5:00 PM</span>
+                  <span class="sched-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" />
+                      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <strong>Award Ceremony at IPN Quadrangle</strong> 🏆
+                  </span>
+                </div>
+                <div class="sched-item highlight">
+                  <span class="sched-time">6:00 PM</span>
+                  <span class="sched-label">Networking Session 2 🎉</span>
+                </div>
+              </div>
+              <div class="image-placeholder mt-4">
+                <img src="quadrangle.jpg" alt="IPN Quadrangle" style="width: 100%; height: auto; border-radius: 8px;" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Timeline -->
-      <div class="timeline">
-        <!-- Day 1 -->
-        <div class="timeline-item fade-in" id="day1">
-          <div class="timeline-marker day-1">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" />
-            </svg>
-          </div>
-          <div class="timeline-content glass-card">
-            <div class="day-header">
-              <span class="day-badge day-1-bg">Day 1</span>
-              <h3>Monday, July 13th</h3>
-            </div>
-            <div class="schedule-items">
-              <div class="sched-item">
-                <span class="sched-time">9:30 – 10:30</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" />
-                    <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2" />
-                    <line x1="20" y1="8" x2="20" y2="14" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" />
-                    <line x1="23" y1="11" x2="17" y2="11" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" />
-                  </svg>
-                  Welcome Registration
-                </span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">12:00 – 1:00</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke="currentColor"
-                      stroke-width="2" />
-                    <line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
-                  Lunch Time
-                </span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">1:00 – 2:00</span>
-                <span class="sched-label">Mentor's Research Conference 1</span>
-              </div>
-              <div class="sched-item muted">
-                <span class="sched-time">2:00 – 2:15</span>
-                <span class="sched-label">Coffee Break ☕</span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">2:15 – 3:30</span>
-                <span class="sched-label">Mentor's Research Conference 2</span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">3:30 – 5:30</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
-                      stroke="currentColor" stroke-width="2" />
-                  </svg>
-                  3D Digitization Workshop
-                </span>
-              </div>
-              <div class="sched-item highlight">
-                <span class="sched-time">6:00 PM</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" />
-                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
-                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                  Networking Session 1 🎉
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Day 2 -->
-        <div class="timeline-item fade-in" id="day2">
-          <div class="timeline-marker day-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke="currentColor" stroke-width="2" />
-              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke="currentColor" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="timeline-content glass-card">
-            <div class="day-header">
-              <span class="day-badge day-2-bg">Day 2</span>
-              <h3>Tuesday, July 14th</h3>
-            </div>
-            <div class="schedule-items">
-              <div class="sched-item">
-                <span class="sched-time">8:30 – 8:45</span>
-                <span class="sched-label">Breakfast</span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">8:45 – 9:00</span>
-                <span class="sched-label">Indications</span>
-              </div>
-              <div class="sched-item highlight">
-                <span class="sched-time">9:00 – 12:00</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <polygon points="23 7 16 12 23 17 23 7" stroke="currentColor" stroke-width="2" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                  Presentations — Stage 1
-                </span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">12:00 – 1:00</span>
-                <span class="sched-label">Lunch Time</span>
-              </div>
-              <div class="sched-item highlight">
-                <span class="sched-time">1:00 – 2:30</span>
-                <span class="sched-label">Presentations — Stage 2</span>
-              </div>
-              <div class="sched-item muted">
-                <span class="sched-time">2:30 – 2:45</span>
-                <span class="sched-label">Coffee Break ☕</span>
-              </div>
-              <div class="sched-item highlight">
-                <span class="sched-time">2:45 – 4:30</span>
-                <span class="sched-label">Presentations — Stage 3</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Day 3 -->
-        <div class="timeline-item fade-in" id="day3">
-          <div class="timeline-marker day-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
-              <path d="M2 12h20" stroke="currentColor" stroke-width="2" />
-              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
-                stroke="currentColor" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="timeline-content glass-card adventure-card">
-            <div class="day-header">
-              <span class="day-badge day-3-bg">Day 3</span>
-              <h3>Wednesday, July 15th</h3>
-            </div>
-            <div class="schedule-items">
-              <div class="sched-item highlight adventure">
-                <span class="sched-time">8:30 – 12:00</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <polygon points="12 2 22 22 2 22" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                  </svg>
-                  Visit to Teotihuacan Pyramids 🏛️
-                </span>
-              </div>
-            </div>
-            <div class="image-placeholder adventure-image">
-              <img src="teotihuacan.jpg" alt="Teotihuacan Pyramids"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Day 4 -->
-        <div class="timeline-item fade-in" id="day4">
-          <div class="timeline-marker day-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" />
-              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="currentColor" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="timeline-content glass-card">
-            <div class="day-header">
-              <span class="day-badge day-4-bg">Day 4</span>
-              <h3>Thursday, July 16th</h3>
-            </div>
-            <div class="schedule-items">
-              <div class="sched-item">
-                <span class="sched-time">9:30 – 12:00</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor"
-                      stroke-width="2" />
-                    <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                  Visit to the Assembly Plant
-                </span>
-              </div>
-              <div class="sched-item">
-                <span class="sched-time">4:00 PM</span>
-                <span class="sched-label">Mentor's Research Conference 3</span>
-              </div>
-              <div class="sched-item finale">
-                <span class="sched-time">5:00 PM</span>
-                <span class="sched-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" />
-                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                  <strong>Award Ceremony at IPN Quadrangle</strong> 🏆
-                </span>
-              </div>
-              <div class="sched-item highlight">
-                <span class="sched-time">6:00 PM</span>
-                <span class="sched-label">Networking Session 2 🎉</span>
-              </div>
-            </div>
-            <div class="image-placeholder mt-4">
-              <img src="quadrangle.jpg" alt="IPN Quadrangle" style="width: 100%; height: auto; border-radius: 8px;" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   </div>
 
   <!-- TAB 3: Hotels -->
   <div class="tab-panel" [class.active]="activeTab === 'hotels'">
-  <!-- Hotel Catalog -->
-  <section class="hotels-section" id="hotels" style="padding-top: 6rem; padding-bottom: 6rem;">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"
-              stroke="url(#hotelGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <defs>
-              <linearGradient id="hotelGrad" x1="5" y1="3" x2="19" y2="21">
-                <stop stop-color="#f59e0b" />
-                <stop offset="1" stop-color="#29c4f8" />
-              </linearGradient>
-            </defs>
-          </svg>
+    <!-- Hotel Catalog -->
+    <section class="hotels-section" id="hotels" style="padding-top: 6rem; padding-bottom: 6rem;">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"
+                stroke="url(#hotelGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="hotelGrad" x1="5" y1="3" x2="19" y2="21">
+                  <stop stop-color="#f59e0b" />
+                  <stop offset="1" stop-color="#29c4f8" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Hotel Catalog</h2>
+          <p class="section-desc">Convenient hotels near Instituto Politécnico Nacional for international attendees</p>
         </div>
-        <h2>Hotel Catalog</h2>
-        <p class="section-desc">Convenient hotels near Instituto Politécnico Nacional for international attendees</p>
+
+        <div class="grid-2">
+          <!-- Hotel 1 -->
+          <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+            <h3 style="color: #f59e0b; font-size: 1.3rem;">Courtyard by Marriott Mexico City Vallejo</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
+              Cruz de las Salinas, Azcapotzalco</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span class="chip coin" style="font-size: 0.8rem;">3.6 km from IPN</span>
+              <span class="chip chip-accent" style="font-size: 0.8rem;">~$182 / night</span>
+              <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">American
+                Breakfast</span>
+            </div>
+            <ul
+              style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness
+                center
+                & terrace</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Restaurant, bar, 24-hr
+                front
+                desk</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Air conditioning,
+                flat-screen
+                TV & private bath</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Memory &
+                Tolerance Museum (6.7km)</li>
+            </ul>
+          </div>
+
+          <!-- Hotel 2 -->
+          <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+            <h3 style="color: #f59e0b; font-size: 1.3rem;">Fairfield Inn & Suites by Marriott Vallejo</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
+              Cruz de las Salinas, Azcapotzalco</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span class="chip coin" style="font-size: 0.8rem;">3.8 km from IPN</span>
+              <span class="chip chip-accent" style="font-size: 0.8rem;">~$161 / night</span>
+              <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Buffet
+                Breakfast</span>
+            </div>
+            <ul
+              style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness
+                center
+                & city views</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Wardrobe, coffee maker,
+                safe
+                & TV</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Smoke-free
+                property</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Fine Arts
+                Museum (7.2km)</li>
+            </ul>
+          </div>
+
+          <!-- Hotel 3 -->
+          <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+            <h3 style="color: #29c4f8; font-size: 1.3rem;">One Ciudad de Mexico La Raza</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Circuito Interior Num. 130,
+              Col. Santa Maria Insurgentes</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span class="chip coin" style="font-size: 0.8rem;">6.0 km from IPN</span>
+              <span class="chip chip-accent" style="font-size: 0.8rem;">~$108 / night</span>
+              <span class="chip"
+                style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Continental
+                Breakfast</span>
+            </div>
+            <ul
+              style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Business center & 24-hr
+                front
+                desk</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Desk, flat-screen TV &
+                private bathroom</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Free private
+                parking</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km),
+                Tenochtitlán
+                Ceremonial Precinct (5km)</li>
+            </ul>
+          </div>
+
+          <!-- Hotel 4 -->
+          <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+            <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Torremolinos Vallejo</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Avenida Cuitlahuac 339,
+              Col.
+              Prohogar, Azcapotzalco</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span class="chip coin" style="font-size: 0.8rem;">4.4 km from IPN</span>
+              <span class="chip chip-accent" style="font-size: 0.8rem;">~$69 / night</span>
+              <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Included
+                Breakfast</span>
+            </div>
+            <ul
+              style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Bar, shared lounge & room
+                service</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Seating area, safe &
+                hairdryer</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free private parking & Free
+                WiFi</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> City Center & U.S. Embassy
+                (5.9km)</li>
+            </ul>
+          </div>
+
+          <!-- Hotel 5 -->
+          <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
+            <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Escala Central del Norte</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Norte 1 -C 4835 Tlacamaca,
+              Gustavo A Madero, 07380</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+              <span class="chip coin" style="font-size: 0.8rem;">3.3 km from IPN</span>
+              <span class="chip chip-accent" style="font-size: 0.8rem;">~$51 / night</span>
+              <span class="chip"
+                style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Restaurant
+                On-Site</span>
+            </div>
+            <ul
+              style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi, free parking &
+                24hr room service</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Cable TV with DVD player,
+                private bathroom & toiletries</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> International cuisine (+
+                other dining options 300m away)</li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km), Polanco
+                Business District (11km)</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <div class="grid-2">
-        <!-- Hotel 1 -->
-        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
-          <h3 style="color: #f59e0b; font-size: 1.3rem;">Courtyard by Marriott Mexico City Vallejo</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
-            Cruz de las Salinas, Azcapotzalco</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <span class="chip coin" style="font-size: 0.8rem;">3.6 km from IPN</span>
-            <span class="chip chip-accent" style="font-size: 0.8rem;">~$182 / night</span>
-            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">American
-              Breakfast</span>
-          </div>
-          <ul
-            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness center
-              & terrace</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Restaurant, bar, 24-hr front
-              desk</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Air conditioning, flat-screen
-              TV & private bath</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Memory &
-              Tolerance Museum (6.7km)</li>
-          </ul>
-        </div>
-
-        <!-- Hotel 2 -->
-        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
-          <h3 style="color: #f59e0b; font-size: 1.3rem;">Fairfield Inn & Suites by Marriott Vallejo</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Calzada Vallejo 1090, Col.
-            Cruz de las Salinas, Azcapotzalco</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <span class="chip coin" style="font-size: 0.8rem;">3.8 km from IPN</span>
-            <span class="chip chip-accent" style="font-size: 0.8rem;">~$161 / night</span>
-            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Buffet
-              Breakfast</span>
-          </div>
-          <ul
-            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free bicycles, fitness center
-              & city views</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Wardrobe, coffee maker, safe
-              & TV</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Smoke-free
-              property</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (10km), Fine Arts
-              Museum (7.2km)</li>
-          </ul>
-        </div>
-
-        <!-- Hotel 3 -->
-        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
-          <h3 style="color: #29c4f8; font-size: 1.3rem;">One Ciudad de Mexico La Raza</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Circuito Interior Num. 130,
-            Col. Santa Maria Insurgentes</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <span class="chip coin" style="font-size: 0.8rem;">6.0 km from IPN</span>
-            <span class="chip chip-accent" style="font-size: 0.8rem;">~$108 / night</span>
-            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Continental
-              Breakfast</span>
-          </div>
-          <ul
-            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Business center & 24-hr front
-              desk</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Desk, flat-screen TV &
-              private bathroom</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi & Free private
-              parking</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km), Tenochtitlán
-              Ceremonial Precinct (5km)</li>
-          </ul>
-        </div>
-
-        <!-- Hotel 4 -->
-        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
-          <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Torremolinos Vallejo</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Avenida Cuitlahuac 339, Col.
-            Prohogar, Azcapotzalco</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <span class="chip coin" style="font-size: 0.8rem;">4.4 km from IPN</span>
-            <span class="chip chip-accent" style="font-size: 0.8rem;">~$69 / night</span>
-            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Included
-              Breakfast</span>
-          </div>
-          <ul
-            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Bar, shared lounge & room
-              service</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Seating area, safe &
-              hairdryer</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free private parking & Free
-              WiFi</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> City Center & U.S. Embassy
-              (5.9km)</li>
-          </ul>
-        </div>
-
-        <!-- Hotel 5 -->
-        <div class="glass-card fade-in" style="display: flex; flex-direction: column;">
-          <h3 style="color: #29c4f8; font-size: 1.3rem;">Hotel Escala Central del Norte</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Norte 1 -C 4835 Tlacamaca,
-            Gustavo A Madero, 07380</p>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <span class="chip coin" style="font-size: 0.8rem;">3.3 km from IPN</span>
-            <span class="chip chip-accent" style="font-size: 0.8rem;">~$51 / night</span>
-            <span class="chip" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.1); color: white;">Restaurant
-              On-Site</span>
-          </div>
-          <ul
-            style="list-style: none; margin: 0 0 1rem 0; padding: 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Free WiFi, free parking &
-              24hr room service</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> Cable TV with DVD player,
-              private bathroom & toiletries</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #22c55e;">✓</span> International cuisine (+
-              other dining options 300m away)</li>
-            <li style="display: flex; gap: 0.5rem;"><span style="color: #29c4f8;">📍</span> Airport (9km), Polanco
-              Business District (11km)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   </div>
 
   <!-- TAB 4: Venues & Explore -->
   <div class="tab-panel" [class.active]="activeTab === 'venues'">
-  <!-- Venues & Directions -->
-  <section class="venues-section" id="venues">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="url(#pinGrad)" stroke-width="2" />
-            <circle cx="12" cy="10" r="3" stroke="url(#pinGrad)" stroke-width="2" />
-            <defs>
-              <linearGradient id="pinGrad" x1="3" y1="2" x2="21" y2="23">
-                <stop stop-color="#ef4444" />
-                <stop offset="1" stop-color="#f59e0b" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h2>Venues & Directions</h2>
-        <p class="section-desc">How to reach our two main event locations</p>
-      </div>
-
-      <div class="grid-2">
-        <!-- DFIE-IPN -->
-        <div class="glass-card venue-card fade-in" id="dfie-card">
-          <div class="venue-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#29c4f8" stroke-width="2" />
-              <polyline points="9 22 9 12 15 12 15 22" stroke="#29c4f8" stroke-width="2" />
+    <!-- Venues & Directions -->
+    <section class="venues-section" id="venues">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="url(#pinGrad)" stroke-width="2" />
+              <circle cx="12" cy="10" r="3" stroke="url(#pinGrad)" stroke-width="2" />
+              <defs>
+                <linearGradient id="pinGrad" x1="3" y1="2" x2="21" y2="23">
+                  <stop stop-color="#ef4444" />
+                  <stop offset="1" stop-color="#f59e0b" />
+                </linearGradient>
+              </defs>
             </svg>
-            <span>Main Event Venue</span>
           </div>
-          <h3>DFIE-IPN</h3>
-          <p class="venue-full-name">Dirección de Formación e Innovación Educativa</p>
-          <p>Located in the <strong>Zacatenco campus</strong> of IPN.</p>
-          <div class="transport-options">
-            <div class="transport-option">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-              </svg>
-              <span><strong>Metro:</strong> Lindavista Station (Line 6) + walk 15 min</span>
-            </div>
-            <div class="transport-option">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#22c55e" stroke-width="2" />
-              </svg>
-              <span><strong>Uber:</strong> Available and recommended, especially at night</span>
-            </div>
-          </div>
-          <div class="mt-2">
-            <img src="dfie.jpg" alt="DFIE-IPN Building"
-              style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);" />
-          </div>
+          <h2>Venues & Directions</h2>
+          <p class="section-desc">How to reach our two main event locations</p>
         </div>
 
-        <!-- IPN Quadrangle -->
-        <div class="glass-card venue-card venue-accent fade-in" id="quad-card">
-          <div class="venue-badge venue-badge-accent">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="8" r="6" stroke="#a33251" stroke-width="2" />
-              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="#a33251" stroke-width="2" />
+        <div class="grid-2">
+          <!-- DFIE-IPN -->
+          <div class="glass-card venue-card fade-in" id="dfie-card">
+            <div class="venue-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#29c4f8" stroke-width="2" />
+                <polyline points="9 22 9 12 15 12 15 22" stroke="#29c4f8" stroke-width="2" />
+              </svg>
+              <span>Main Event Venue</span>
+            </div>
+            <h3>DFIE-IPN</h3>
+            <p class="venue-full-name">Dirección de Formación e Innovación Educativa</p>
+            <p>Located in the <strong>Zacatenco campus</strong> of IPN.</p>
+            <div class="transport-options">
+              <div class="transport-option">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                </svg>
+                <span><strong>Metro:</strong> Lindavista Station (Line 6) + walk 15 min</span>
+              </div>
+              <div class="transport-option">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#22c55e" stroke-width="2" />
+                </svg>
+                <span><strong>Uber:</strong> Available and recommended, especially at night</span>
+              </div>
+            </div>
+            <div class="mt-2">
+              <img src="dfie.jpg" alt="DFIE-IPN Building"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);" />
+            </div>
+          </div>
+
+          <!-- IPN Quadrangle -->
+          <div class="glass-card venue-card venue-accent fade-in" id="quad-card">
+            <div class="venue-badge venue-badge-accent">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="6" stroke="#a33251" stroke-width="2" />
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" stroke="#a33251" stroke-width="2" />
+              </svg>
+              <span>Award Ceremony</span>
+            </div>
+            <h3 class="text-gradient-guinda">IPN Quadrangle</h3>
+            <p class="venue-full-name">Historic Casco de Santo Tomás</p>
+            <p>One of the most iconic IPN buildings — the setting for our final celebration.</p>
+            <div class="transport-options">
+              <div class="transport-option">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                </svg>
+                <span><strong>Metro:</strong> Normal Station (Line 2 — Blue) + walk 5 min</span>
+              </div>
+              <div class="transport-option">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#22c55e" stroke-width="2" />
+                </svg>
+                <span><strong>Uber:</strong> Available and recommended, especially at night</span>
+              </div>
+            </div>
+            <div class="mt-2">
+              <img src="quadrangle.jpg" alt="Casco de Santo Tomás"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Places to Visit -->
+    <section class="explore-section" id="explore">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="url(#compassGrad)" stroke-width="2" />
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="url(#compassGrad)" />
+              <defs>
+                <linearGradient id="compassGrad" x1="2" y1="2" x2="22" y2="22">
+                  <stop stop-color="#f59e0b" />
+                  <stop offset="1" stop-color="#ef4444" />
+                </linearGradient>
+              </defs>
             </svg>
-            <span>Award Ceremony</span>
           </div>
-          <h3 class="text-gradient-guinda">IPN Quadrangle</h3>
-          <p class="venue-full-name">Historic Casco de Santo Tomás</p>
-          <p>One of the most iconic IPN buildings — the setting for our final celebration.</p>
-          <div class="transport-options">
-            <div class="transport-option">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-              </svg>
-              <span><strong>Metro:</strong> Normal Station (Line 2 — Blue) + walk 5 min</span>
-            </div>
-            <div class="transport-option">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#22c55e" stroke-width="2" />
-              </svg>
-              <span><strong>Uber:</strong> Available and recommended, especially at night</span>
-            </div>
-          </div>
-          <div class="mt-2">
-            <img src="quadrangle.jpg" alt="Casco de Santo Tomás"
-              style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);" />
+          <h2>Places to Explore</h2>
+          <p class="section-desc">Must-visit destinations in Mexico City — with Metro directions from DFIE</p>
+        </div>
+
+        <div class="explore-tip fade-in">
+          <div class="tip-box explore-uber-tip">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#f59e0b" stroke-width="2" />
+              <path d="M13.73 21a2 2 0 01-3.46 0" stroke="#f59e0b" stroke-width="2" />
+            </svg>
+            <span>At night, prefer <strong>Uber</strong> over Metro for safety and convenience. The Metro closes at
+              midnight.</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Places to Visit -->
-  <section class="explore-section" id="explore">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="url(#compassGrad)" stroke-width="2" />
-            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="url(#compassGrad)" />
-            <defs>
-              <linearGradient id="compassGrad" x1="2" y1="2" x2="22" y2="22">
-                <stop stop-color="#f59e0b" />
-                <stop offset="1" stop-color="#ef4444" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h2>Places to Explore</h2>
-        <p class="section-desc">Must-visit destinations in Mexico City — with Metro directions from DFIE</p>
-      </div>
-
-      <div class="explore-tip fade-in">
-        <div class="tip-box explore-uber-tip">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#f59e0b" stroke-width="2" />
-            <path d="M13.73 21a2 2 0 01-3.46 0" stroke="#f59e0b" stroke-width="2" />
-          </svg>
-          <span>At night, prefer <strong>Uber</strong> over Metro for safety and convenience. The Metro closes at
-            midnight.</span>
-        </div>
-      </div>
-
-      <div class="explore-grid">
-        <!-- Zócalo -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="zocalo.jpg" alt="Zócalo"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+        <div class="explore-grid">
+          <!-- Zócalo -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="zocalo.jpg" alt="Zócalo"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Zócalo & Historic Center</h4>
-            <p>The beating heart of Mexico City — the main square, the Cathedral, and the National Palace.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → transfer at Deportivo 18 de Marzo → <strong>Zócalo Station (Line 2)</strong></span>
+            <div class="explore-card-body">
+              <h4>Zócalo & Historic Center</h4>
+              <p>The beating heart of Mexico City — the main square, the Cathedral, and the National Palace.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → transfer at Deportivo 18 de Marzo → <strong>Zócalo Station (Line 2)</strong></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Chapultepec -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="chapultepec_castle.jpg" alt="Chapultepec Castle"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Chapultepec -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="chapultepec_castle.jpg" alt="Chapultepec Castle"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Chapultepec Castle & Park</h4>
-            <p>A massive urban park with a castle, museums, and a lake. One of the world's largest city parks.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → Dep. 18 de Marzo → <strong>Chapultepec Station (Line 1)</strong></span>
+            <div class="explore-card-body">
+              <h4>Chapultepec Castle & Park</h4>
+              <p>A massive urban park with a castle, museums, and a lake. One of the world's largest city parks.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → Dep. 18 de Marzo → <strong>Chapultepec Station (Line 1)</strong></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Bellas Artes -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="bellas_artes.jpeg" alt="Bellas Artes"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Bellas Artes -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="bellas_artes.jpeg" alt="Bellas Artes"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Palacio de Bellas Artes</h4>
-            <p>Stunning Art Nouveau palace featuring murals by Diego Rivera and stunning architecture.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → Dep. 18 de Marzo → <strong>Bellas Artes Station (Line 2/8)</strong></span>
+            <div class="explore-card-body">
+              <h4>Palacio de Bellas Artes</h4>
+              <p>Stunning Art Nouveau palace featuring murals by Diego Rivera and stunning architecture.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → Dep. 18 de Marzo → <strong>Bellas Artes Station (Line 2/8)</strong></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Coyoacán -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="coyoacan.jpg" alt="Coyoacán"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Coyoacán -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="coyoacan.jpg" alt="Coyoacán"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Coyoacán & Frida Kahlo Museum</h4>
-            <p>Bohemian neighborhood home to the iconic Frida Kahlo "Casa Azul" museum and beautiful colonial
-              streets.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → transfer → <strong>Coyoacán Station (Line 3)</strong> + walk</span>
+            <div class="explore-card-body">
+              <h4>Coyoacán & Frida Kahlo Museum</h4>
+              <p>Bohemian neighborhood home to the iconic Frida Kahlo "Casa Azul" museum and beautiful colonial
+                streets.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → transfer → <strong>Coyoacán Station (Line 3)</strong> + walk</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Reforma & Angel -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="reforma.jpg" alt="Reforma"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Reforma & Angel -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="reforma.jpg" alt="Reforma"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Paseo de la Reforma & Ángel de la Independencia</h4>
-            <p>The city's most famous avenue with monuments, skyscrapers, and the iconic golden Angel.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → Dep. 18 de Marzo → <strong>Insurgentes Station (Line 1)</strong> + walk</span>
+            <div class="explore-card-body">
+              <h4>Paseo de la Reforma & Ángel de la Independencia</h4>
+              <p>The city's most famous avenue with monuments, skyscrapers, and the iconic golden Angel.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → Dep. 18 de Marzo → <strong>Insurgentes Station (Line 1)</strong> + walk</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Monumento a la Revolucion -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="revolucion.jpg" alt="Monumento a la Revolución"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Monumento a la Revolucion -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="revolucion.jpg" alt="Monumento a la Revolución"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Monumento a la Revolución</h4>
-            <p>A massive arch commemorating the Mexican Revolution, featuring a spectacular observation deck.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → Dep. 18 de Marzo → <strong>Revolución Station (Line 2)</strong></span>
+            <div class="explore-card-body">
+              <h4>Monumento a la Revolución</h4>
+              <p>A massive arch commemorating the Mexican Revolution, featuring a spectacular observation deck.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → Dep. 18 de Marzo → <strong>Revolución Station (Line 2)</strong></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Antara -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="antara.jpg" alt="Antara"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Antara -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="antara.jpg" alt="Antara"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Plaza Antara (Polanco)</h4>
-            <p>An upscale open-air shopping mall in Polanco with premium boutiques, restaurants, and nightlife.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → El Rosario → <strong>Polanco Station (Line 7)</strong> + Uber</span>
+            <div class="explore-card-body">
+              <h4>Plaza Antara (Polanco)</h4>
+              <p>An upscale open-air shopping mall in Polanco with premium boutiques, restaurants, and nightlife.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → El Rosario → <strong>Polanco Station (Line 7)</strong> + Uber</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Reforma 222 -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="reforma222.png" alt="Reforma 222"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Reforma 222 -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="reforma222.png" alt="Reforma 222"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Reforma 222</h4>
-            <p>A striking, modern architectural complex housing a stylish mall right on Paseo de la Reforma.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
-                  <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
-                </svg>
-                <span>Lindavista → Dep. 18 de Marzo → <strong>Hidalgo Station (Line 3)</strong> + Walk</span>
+            <div class="explore-card-body">
+              <h4>Reforma 222</h4>
+              <p>A striking, modern architectural complex housing a stylish mall right on Paseo de la Reforma.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="11" width="18" height="10" rx="2" stroke="#29c4f8" stroke-width="2" />
+                    <path d="M5 11l2-8h10l2 8" stroke="#29c4f8" stroke-width="2" />
+                  </svg>
+                  <span>Lindavista → Dep. 18 de Marzo → <strong>Hidalgo Station (Line 3)</strong> + Walk</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Parque Lindavista -->
-        <div class="glass-card explore-card fade-in">
-          <div class="explore-card-img">
-            <div style="height: 100%;">
-              <img src="parquelindavista.jpg" alt="Parque Lindavista"
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+          <!-- Parque Lindavista -->
+          <div class="glass-card explore-card fade-in">
+            <div class="explore-card-img">
+              <div style="height: 100%;">
+                <img src="parquelindavista.jpg" alt="Parque Lindavista"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+              </div>
             </div>
-          </div>
-          <div class="explore-card-body">
-            <h4>Parque Lindavista</h4>
-            <p>The nearest large shopping center right in our district, offering great dining, shops, and cinemas.</p>
-            <div class="explore-directions">
-              <div class="explore-direction">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="4" stroke="#22c55e" stroke-width="2" />
-                  <path d="M12 2v4m0 12v4M4 12H2m20 0h-2" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-                </svg>
-                <span>Walking distance! (~5 minutes from IPN)</span>
+            <div class="explore-card-body">
+              <h4>Parque Lindavista</h4>
+              <p>The nearest large shopping center right in our district, offering great dining, shops, and cinemas.</p>
+              <div class="explore-directions">
+                <div class="explore-direction">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="4" stroke="#22c55e" stroke-width="2" />
+                    <path d="M12 2v4m0 12v4M4 12H2m20 0h-2" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                  <span>Walking distance! (~20 minutes from IPN)</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </div>
 
   <!-- TAB 5: Call for Papers -->
   <div class="tab-panel" [class.active]="activeTab === 'papers'">
-  <section class="papers-section" id="papers">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="14 2 14 8 20 8" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="16" y1="13" x2="8" y2="13" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round"/>
-            <line x1="16" y1="17" x2="8" y2="17" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round"/>
-            <polyline points="10 9 9 9 8 9" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round"/>
-            <defs>
-              <linearGradient id="paperGrad" x1="4" y1="2" x2="20" y2="22">
-                <stop stop-color="#29c4f8"/>
-                <stop offset="1" stop-color="#22c55e"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <h2>Call for Papers</h2>
-        <p class="section-desc">Each team will develop a concept that addresses the <strong>decarbonization of the vehicle use phase</strong>.</p>
-      </div>
-
-      <div class="grid-2">
-        <!-- Deadlines -->
-        <div class="glass-card fade-in">
-          <div class="card-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#29c4f8" stroke-width="2"/>
-              <polyline points="12 6 12 12 16 14" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <section class="papers-section" id="papers">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="url(#paperGrad)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="14 2 14 8 20 8" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line x1="16" y1="13" x2="8" y2="13" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round" />
+              <line x1="16" y1="17" x2="8" y2="17" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round" />
+              <polyline points="10 9 9 9 8 9" stroke="url(#paperGrad)" stroke-width="2" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="paperGrad" x1="4" y1="2" x2="20" y2="22">
+                  <stop stop-color="#29c4f8" />
+                  <stop offset="1" stop-color="#22c55e" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
-          <h3>Key Deadlines</h3>
+          <h2>Call for Papers</h2>
+          <p class="section-desc">Each team will develop a concept that addresses the <strong>decarbonization of the
+              vehicle use phase</strong>.</p>
+        </div>
 
-          <div class="papers-timeline">
-            <div class="papers-timeline-item">
-              <div class="timeline-dot" style="border-color: #29c4f8;"></div>
-              <div class="timeline-date" style="color: #29c4f8;">May 6, 2026</div>
-              <div class="timeline-desc">Abstract submission deadline</div>
+        <div class="grid-2">
+          <!-- Deadlines -->
+          <div class="glass-card fade-in">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#29c4f8" stroke-width="2" />
+                <polyline points="12 6 12 12 16 14" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </div>
-            <div class="papers-timeline-item">
-              <div class="timeline-dot" style="border-color: #22c55e;"></div>
-              <div class="timeline-date" style="color: #22c55e;">May — June 2026</div>
-              <div class="timeline-desc">Acceptance notifications will be sent to teams</div>
+            <h3>Key Deadlines</h3>
+
+            <div class="papers-timeline">
+              <div class="papers-timeline-item">
+                <div class="timeline-dot" style="border-color: #29c4f8;"></div>
+                <div class="timeline-date" style="color: #29c4f8;">May 6, 2026</div>
+                <div class="timeline-desc">Abstract submission deadline</div>
+              </div>
+              <div class="papers-timeline-item">
+                <div class="timeline-dot" style="border-color: #22c55e;"></div>
+                <div class="timeline-date" style="color: #22c55e;">July 1, 2026</div>
+                <div class="timeline-desc">Full paper submission deadline</div>
+              </div>
+              <div class="papers-timeline-item">
+                <div class="timeline-dot" style="border-color: #f472b6;"></div>
+                <div class="timeline-date" style="color: #f472b6;">July 8, 2026</div>
+                <div class="timeline-desc">Notification of acceptance</div>
+              </div>
+              <div class="papers-timeline-item">
+                <div class="timeline-dot" style="border-color: #f59e0b;"></div>
+                <div class="timeline-date" style="color: #f59e0b;">July 11, 2026</div>
+                <div class="timeline-desc">Final paper submission deadline</div>
+              </div>
             </div>
-            <div class="papers-timeline-item">
-              <div class="timeline-dot" style="border-color: #f59e0b;"></div>
-              <div class="timeline-date" style="color: #f59e0b;">July 1, 2026</div>
-              <div class="timeline-desc">Full paper submission deadline</div>
+          </div>
+
+          <!-- Submission Rules -->
+          <div class="glass-card fade-in">
+            <div class="card-icon" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M9 11l3 3L22 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#22c55e" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Submission Rules</h3>
+
+            <div class="papers-rules">
+              <div class="papers-rule">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#29c4f8" stroke-width="2" />
+                  <circle cx="8.5" cy="7" r="4" stroke="#29c4f8" stroke-width="2" />
+                  <line x1="20" y1="8" x2="20" y2="14" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
+                  <line x1="23" y1="11" x2="17" y2="11" stroke="#29c4f8" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span><strong>1 submission per team.</strong> Each participating team may submit one paper based on
+                  their project concept.</span>
+              </div>
+              <div class="papers-rule">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#c084fc" stroke-width="2" />
+                  <circle cx="8.5" cy="7" r="4" stroke="#c084fc" stroke-width="2" />
+                  <path d="M20 8v6M23 11h-6" stroke="#c084fc" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span><strong>Mentors may submit individually.</strong> If a mentor wishes to submit their own
+                  additional research paper, this is permitted separately from the team submission.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Submission Rules -->
-        <div class="glass-card fade-in">
-          <div class="card-icon" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2);">
+        <!-- Topics -->
+        <div class="glass-card fade-in" style="margin-top: 2rem;">
+          <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M9 11l3 3L22 4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" />
+              <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line x1="12" y1="17" x2="12.01" y2="17" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
-          <h3>Submission Rules</h3>
+          <h3>Research Topics</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">The concept may involve <strong>technological
+              innovations, digital services, new business models, or integrated system solutions</strong>. Possible
+            directions include:</p>
 
-          <div class="papers-rules">
-            <div class="papers-rule">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#29c4f8" stroke-width="2"/>
-                <circle cx="8.5" cy="7" r="4" stroke="#29c4f8" stroke-width="2"/>
-                <line x1="20" y1="8" x2="20" y2="14" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"/>
-                <line x1="23" y1="11" x2="17" y2="11" stroke="#29c4f8" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span><strong>1 submission per team.</strong> Each participating team may submit one paper based on their project concept.</span>
+          <div class="topics-grid">
+            <div class="topic-card">
+              <div class="topic-num">1</div>
+              <span>Intelligent charging systems that optimize charging times based on renewable energy
+                availability</span>
             </div>
-            <div class="papers-rule">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#c084fc" stroke-width="2"/>
-                <circle cx="8.5" cy="7" r="4" stroke="#c084fc" stroke-width="2"/>
-                <path d="M20 8v6M23 11h-6" stroke="#c084fc" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              <span><strong>Mentors may submit individually.</strong> If a mentor wishes to submit their own additional research paper, this is permitted separately from the team submission.</span>
+            <div class="topic-card">
+              <div class="topic-num">2</div>
+              <span>Vehicle technologies that reduce energy consumption</span>
+            </div>
+            <div class="topic-card">
+              <div class="topic-num">3</div>
+              <span>Charging infrastructure powered by renewable energy</span>
+            </div>
+            <div class="topic-card">
+              <div class="topic-num">4</div>
+              <span>Energy trading platforms that connect electric vehicles with local renewable energy sources</span>
+            </div>
+            <div class="topic-card">
+              <div class="topic-num">5</div>
+              <span>Digital applications that inform users about the environmental impact of charging</span>
+            </div>
+            <div class="topic-card">
+              <div class="topic-num">6</div>
+              <span>Means to shape user behavior towards sustainable vehicle usage</span>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Topics -->
-      <div class="glass-card fade-in" style="margin-top: 2rem;">
-        <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2);">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2"/>
-            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="12" y1="17" x2="12.01" y2="17" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3>Research Topics</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">The concept may involve <strong>technological innovations, digital services, new business models, or integrated system solutions</strong>. Possible directions include:</p>
-
-        <div class="topics-grid">
-          <div class="topic-card">
-            <div class="topic-num">1</div>
-            <span>Intelligent charging systems that optimize charging times based on renewable energy availability</span>
-          </div>
-          <div class="topic-card">
-            <div class="topic-num">2</div>
-            <span>Vehicle technologies that reduce energy consumption</span>
-          </div>
-          <div class="topic-card">
-            <div class="topic-num">3</div>
-            <span>Charging infrastructure powered by renewable energy</span>
-          </div>
-          <div class="topic-card">
-            <div class="topic-num">4</div>
-            <span>Energy trading platforms that connect electric vehicles with local renewable energy sources</span>
-          </div>
-          <div class="topic-card">
-            <div class="topic-num">5</div>
-            <span>Digital applications that inform users about the environmental impact of charging</span>
-          </div>
-          <div class="topic-card">
-            <div class="topic-num">6</div>
-            <span>Means to shape user behavior towards sustainable vehicle usage</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   </div>
 
   <!-- Footer -->
