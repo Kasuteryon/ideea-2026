@@ -1,4 +1,7 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { RouterOutlet, RouterLink, Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 export interface WorldClock {
   name: string;
@@ -10,11 +13,25 @@ export interface WorldClock {
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements AfterViewInit, OnDestroy {
+  isLandingPage = true;
+  private routerSub: Subscription;
+
+  constructor(public router: Router) {
+    this.routerSub = this.router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        this.isLandingPage = (e as NavigationEnd).urlAfterRedirects === '/';
+        if (this.isLandingPage) {
+          setTimeout(() => this.reObserveFadeIns(), 50);
+        }
+      });
+  }
+
   private observer!: IntersectionObserver;
   private timeInterval: any;
 
@@ -118,5 +135,6 @@ export class App implements AfterViewInit, OnDestroy {
     if (this.observer) {
       this.observer.disconnect();
     }
+    this.routerSub.unsubscribe();
   }
 }

@@ -1,0 +1,154 @@
+<div class="dashboard-page">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <div class="header-left">
+        <h1>Invitation <span class="text-gradient-cyan">Manager</span></h1>
+        <p class="header-subtitle">Manage invitation letters for IDEEA 2026 participants</p>
+      </div>
+      <div class="header-actions">
+        <a routerLink="/" class="btn-glass">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Home
+        </a>
+        <button class="btn-glass btn-logout" (click)="logout()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-toolbar">
+      <div class="stats">
+        <span class="stat-item">
+          <strong>{{ invitations.length }}</strong> invitation{{ invitations.length !== 1 ? 's' : '' }} registered
+        </span>
+      </div>
+      <button class="btn-primary btn-add" (click)="toggleAddForm()">
+        @if (showAddForm) {
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          Cancel
+        } @else {
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Add Invitation
+        }
+      </button>
+    </div>
+
+    @if (showAddForm) {
+      <div class="add-form glass-panel">
+        <h3>New Invitation</h3>
+        <form (ngSubmit)="addInvitation()">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="newEmail">Participant Email</label>
+              <input
+                id="newEmail"
+                type="email"
+                [(ngModel)]="newEmail"
+                name="newEmail"
+                placeholder="participant@example.com"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <label for="newLink">Google Drive Link</label>
+              <input
+                id="newLink"
+                type="url"
+                [(ngModel)]="newDriveLink"
+                name="newDriveLink"
+                placeholder="https://drive.google.com/file/d/..."
+                required
+              />
+            </div>
+          </div>
+          @if (addError) {
+            <p class="form-error">{{ addError }}</p>
+          }
+          <button type="submit" class="btn-primary" [disabled]="addLoading">
+            @if (addLoading) {
+              <span class="spinner"></span>
+              Saving...
+            } @else {
+              Save Invitation
+            }
+          </button>
+        </form>
+      </div>
+    }
+
+    <div class="invitations-list">
+      @if (loading) {
+        <div class="loading-state">
+          <span class="spinner spinner-lg"></span>
+          <p>Loading invitations...</p>
+        </div>
+      } @else if (invitations.length === 0) {
+        <div class="empty-state glass-panel">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#86868b" stroke-width="1.5" />
+            <polyline points="14 2 14 8 20 8" stroke="#86868b" stroke-width="1.5" />
+          </svg>
+          <p>No invitations registered yet.</p>
+          <p class="empty-hint">Click "Add Invitation" to register the first one.</p>
+        </div>
+      } @else {
+        <div class="table-wrapper glass-panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Drive Link</th>
+                <th>Downloads</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (inv of invitations; track inv.id) {
+                <tr>
+                  <td class="cell-email">{{ inv.email }}</td>
+                  <td class="cell-link">
+                    <a [href]="inv.driveLink" target="_blank" rel="noopener">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      Open
+                    </a>
+                  </td>
+                  <td class="cell-count">
+                    <span class="badge-count">{{ inv.downloadCount }}</span>
+                  </td>
+                  <td class="cell-date">{{ inv.createdAt.toDate() | date:'MMM d, y' }}</td>
+                  <td class="cell-actions">
+                    <button class="btn-delete" (click)="deleteInvitation(inv)" title="Delete">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  </div>
+</div>

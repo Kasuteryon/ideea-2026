@@ -1,3 +1,7 @@
+<!-- Router outlet for sub-pages -->
+<router-outlet />
+
+@if (isLandingPage) {
 <!-- Floating gradient orbs background -->
 <div class="bg-orbs" style="z-index: -1;">
   <div class="orb orb-1"></div>
@@ -182,6 +186,34 @@
               <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Click here to fill out the arrival
                 and logistics form for Students.</p>
             </div>
+          </a>
+        </div>
+
+        <!-- Invitation Letter Finder -->
+        <div class="invitation-cta fade-in" style="margin-top: 2.5rem; text-align: center;">
+          <a routerLink="/invitation" class="glass-card"
+            style="text-decoration: none; display: inline-flex; align-items: center; gap: 1rem; padding: 1.15rem 2rem; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;">
+            <div class="card-icon"
+              style="margin: 0; flex-shrink: 0; background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#22c55e" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="14 2 14 8 20 8" stroke="#22c55e" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <line x1="16" y1="13" x2="8" y2="13" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+                <line x1="16" y1="17" x2="8" y2="17" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div style="text-align: left;">
+              <h4 style="margin-bottom: 0.25rem;">Find Your Invitation Letter</h4>
+              <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                Already requested one? Search by email to download it. Letters may take a few days after survey submission.
+              </p>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; opacity: 0.5;">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </a>
         </div>
       </div>
@@ -1381,6 +1413,7 @@
         </svg>
         ideea.network
       </a>
+      <a routerLink="/admin" class="footer-admin-link">IDEEA Committee</a>
     </div>
   </footer>
 </main>
@@ -1399,3 +1432,4 @@
   </div>
 </div>
 }
+} <!-- end @if (router.url === '/') -->
